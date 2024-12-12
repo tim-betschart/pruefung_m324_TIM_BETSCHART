@@ -2,9 +2,10 @@ import chalk from 'chalk'
 
 console.log(chalk.blue('It works'))
 
-let myUnusedVariable = ''
+const myUnusedVariable = ''
+console.log(myUnusedVariable)
 
 let check = true
-if (check == false) {
+if (check === false) {
     check = true
 }
