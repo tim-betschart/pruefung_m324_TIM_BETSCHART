@@ -1,18 +1,25 @@
 {
-  "name": "pruefung_m324_tim_betschart",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "chalk": "^5.3.0",
-    "eslint": "^9.16.0",
-    "prettier": "^3.4.2"
-  }
+    "name": "pruefung_m324_tim_betschart",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "format-check": "prettier --check .",
+        "start": "npm run lint && npm run format-check && node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^5.3.0",
+        "prettier": "^3.4.2"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.16.0",
+        "eslint": "^9.16.0",
+        "globals": "^15.13.0"
+    }
 }
