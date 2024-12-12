@@ -1,0 +1,90 @@
+<h1 id="ictm324programmieraufgabe2">ict-m324 - Programmieraufgabe 2</h1>
+<h2 id="gitgithubreleaseautomatisierung">Git, GitHub, Release, Automatisierung</h2>
+<p>Git ist eine Software, mit der Sie Änderungen an einem Projekt im Laufe der Zeit verfolgen können.
+Ein DevOps Engineer nutzt Git täglich für die Arbeit an Code, Infrastruktur und Deployment-Prozessen, wodurch es eines der wichtigsten Tools im DevOps-Toolkit ist.</p>
+<p>Lernziele:</p>
+<ul>
+<li>Grundlagen von Versionskontrolle, Branching, Pull Requests und Konfliktlösung.</li>
+<li>Erstellen von Releases und Hosting mit GitHub Pages.</li>
+<li>Automatisierung Skript schreiben</li>
+</ul>
+<h2 id="1einrichtungihrentwicklungssetup">1. Einrichtung: Ihr Entwicklungs-Setup</h2>
+<h3 id="entwicklungsumgebungvorbereiten">Entwicklungsumgebung vorbereiten</h3>
+<p>Falls Sie noch nie mit Git und GitHub gearbeitet haben.</p>
+<ol>
+<li><strong>Installieren Sie Ihre bevorzugte IDE</strong></li>
+<li><strong>Installieren Sie Git</strong></li>
+<li><strong>Erstellen Sie ein GitHub-Konto</strong></li>
+</ol>
+<h3 id="repositoryerstellenundklonen">Repository erstellen und klonen</h3>
+<ul>
+<li><strong>Erstellen Sie ein neues Repository</strong>: Legen Sie ein neues <em>public</em> Repository auf GitHub.com an.</li>
+<li><strong>Wichtig</strong>:Der Name des Repository sollte das Wort <em>m324-task-2-git</em> und ihren <em>Vor- und Nachnamen</em> enthalten.</li>
+<li>Wählen Sie die Option "README.md" erstellen, damit es schon einen main Branch hat. Klonen Sie dann das Remote Repository auf Ihr lokales System.</li>
+<li><strong>Öffnen Sie das Repository in der IDE</strong>: Nutzen Sie Ihre IDE, um das geklonte Repository für die Entwicklung vorzubereiten.</li>
+</ul>
+<h3 id="dateieninitialisieren">Dateien initialisieren</h3>
+<ul>
+<li><strong>Erstellen Sie eine <code>index.html</code>-Datei</strong>: Diese Datei dient zur Demonstration grundlegender Git-Befehle. Pushen Sie die Datei in den main Branch.</li>
+</ul>
+<h2 id="2gitverwenden">2. Git verwenden</h2>
+<h3 id="gitbefehleausfhren">Git-Befehle ausführen</h3>
+<ul>
+<li>Wechseln Sie auf den main branch. Erstellen Sie einen neuen Branch für die Feature-Entwicklung.
+<code>bash
+git checkout -b feature-branch
+</code></li>
+<li>Ändern Sie index.html: Fügen Sie neuen Inhalt zur Datei hinzu.</li>
+<li><code>git status</code>: Überprüfen Sie den aktuellen Status des Repositories und identifizieren Sie unversionierte Änderungen.</li>
+<li><code>git add .</code>: Fügen Sie alle Änderungen zum Staging-Bereich hinzu.</li>
+<li>Committen Sie die Änderung im HTML und pushen Sie die ihren neuen Branch.</li>
+<li><code>git commit -m "Initial commit"</code>: Speichern Sie die Änderungen in der Historie des Repositories.</li>
+<li><code>git log</code>: Zeigen Sie die Commit-Historie an, um den Fortschritt zu überprüfen.</li>
+<li>Kontrollieren Sie auf github.com, ob ihr neuer Branch da ist.</li>
+</ul>
+<h3 id="pullrequestffnen">Pull Request öffnen</h3>
+<p>Ein Pull Request oder Merge Request bezeichnet in der Versionsverwaltung einen Arbeitsablauf, Quellcode-Änderungen in Softwareprojekten vorzunehmen.</p>
+<ul>
+<li>Wenn Sie ihren neuen Branch gepusht haben, erscheint auf der Startseite ihres Repositories ein Button "Compare &amp; pull request". Klicken Sie auf diesen Button, um einen Pull Request zu erstellen.</li>
+<li>Erstellen Sie ein Code Review, indem Sie als Kommentar "LGTM" (Looks good to me) schreiben und anschliessend den Pull Request mergen. Der Feature Branch sollte automatisch gelöscht werden.</li>
+</ul>
+<h2 id="3gitmergekonflikt">3. Git Merge-Konflikt</h2>
+<h3 id="setup">Setup</h3>
+<ul>
+<li>Erstellen Sie einen neuen Branch <em>conflict-change</em></li>
+<li>Ändern Sie etwas auf der ersten Zeile im index.html</li>
+<li>Pushen Sie ihren neuen Branch und erstellen Sie einen Pull Request.</li>
+<li>Wechseln Sie auf den main Branch.</li>
+<li>Ändern Sie etwas auf der ersten Zeile im index.html.</li>
+<li>Pushen Sie die Änderung in den main Branch.</li>
+<li>Öffnen Sie nun ihren Pull Request für den Branch <em>conflict-change</em>.</li>
+<li>Unten sollte sichtbar sein, dass der Pull Request nicht gemerged werden kann wegen einem Konflikt.</li>
+<li>Lösen Sie den Konflikt. Mergen Sie dafür den main Branch in den Branch <em>conflict-change</em> (git checkout conflict-change &amp;&amp; git merge main). Verwenden Sie geeignete Tools wie Visual Studio. Beispiel hier: https://www.youtube.com/watch?v=ybCxPHzRJfA
+Das Resultat sollte sein, dass der Stand im main übernommen wird. Verwenden Sie in ihren Konflikt Editor, ohne den Code manuell zu ändern.</li>
+<li>Mergen Sie anschliessend den Pull Request.</li>
+</ul>
+<h2 id="4releaseerstellenunddeployen">4. Release erstellen und deployen</h2>
+<h3 id="releaseerstellen">Release erstellen</h3>
+<ul>
+<li>Klicken Sie im Menü des Repositories auf den Reiter <strong>Releases</strong>.</li>
+<li>Klicken Sie auf <strong>Create a new release</strong>.
+Geben Sie eine <strong>Tag-Version</strong> ein (z.B. <code>v1.0.0</code>).<ul>
+<li>Sie können auch einen Branch oder Commit auswählen, auf dem das Release basieren soll.</li></ul></li>
+<li>Geben Sie einen <strong>Titel</strong> für das Release ein (z.B. "Erstes offizielles Release").</li>
+<li>Fügen Sie eine <strong>Beschreibung</strong> hinzu, die die Änderungen oder neuen Features des Releases beschreibt.</li>
+<li>Optional: Sie können Dateien oder Builds als <strong>Assets</strong> zum Release hinzufügen, indem Sie sie hochladen.</li>
+<li>Klicken Sie auf <strong>Publish release</strong>, um das Release zu erstellen und öffentlich zu machen.</li>
+</ul>
+<h3 id="websiteaufgithubpagesverffentlichen">Website auf GitHub Pages veröffentlichen</h3>
+<ul>
+<li>Releasen Sie eine Website mit GitHub Pages.</li>
+<li>Recherchieren Sie, wie eine Website mit GitHub Pages funktioniert.</li>
+<li>Als Resultat bekommen Sie eine URL, die öfffentlich erreichbar ist und den Inhalt der Datei index.html als Website darstellt.</li>
+<li>Achten Sie auf die Einträge bei "Actions", um das Deployment nachzuvollziehen. Sie werden später ihre eigenen GitHub Actions erstellen.</li>
+</ul>
+<h2 id="5automatisierung">5. Automatisierung</h2>
+<ul>
+<li>Auf ihrer GitHub Pages Website soll diese README.md Datei ausgegeben werden.</li>
+<li>Schreiben Sie einen Prozess für die Konvertierung von Markdown in HTML, den Sie automatisiert ausführen können (PowerShell/Bash). Beispiel: <code>sh convert.sh</code> konvertiert die Datei README.md in HTML und erstellt die Datei index.html.</li>
+<li>Automatisieren Sie den Prozess. Das Ziel ist, dass nicht vergessen wird index.html zu updaten, wenn sich README.md ändert.</li>
+</ul>
